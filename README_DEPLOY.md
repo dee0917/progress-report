@@ -1,0 +1,17 @@
+# iHaveTime Sourcing Dashboard - PWA
+
+This is the mobile-optimized, Progressive Web App (PWA) version of the Sourcing Dashboard.
+
+## Features
+- **Mobile First**: Viewport settings adapted for iOS/Android screens.
+- **Installable**: Can be added to Home Screen as a standalone app.
+- **Offline Capable**: Basic caching via Service Worker.
+
+## How to Install (PWD)
+1.  **iOS**: Open in Safari -> Share -> "Add to Home Screen".
+2.  **Android**: Open in Chrome -> Menu -> "Install App".
+
+## Deployment
+Deployed via Vercel.
+- Data Source: `progress_reportV2.html` (Static snapshot)
+- Updates: Re-run `clean_html_and_update.py` then redeploy.
