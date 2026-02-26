@@ -1,87 +1,70 @@
-# 🏭 自動化建站工廠：標準化生成流程 (Site Factory Pipeline)
+# 🏭 UI/UX Pro Max 自動化建站工廠：標準化生成流程
 
-本文件定義了從 `progress-report` 單一資料庫，自動衍生出無數個**完整、獨立、可直接上線（如 `C:\Users\Dee\MyApp\A`）的實體電商網站**的標準化流程。
+本文件定義了從 `progress-report` 單一資料庫，自動衍生出無數個**完整、高質感、絕不重複的實體電商網站（如 `C:\Users\Dee\MyApp\A`）**的標準化流程。
 
-生成出來的網站並非只是空殼預覽，而是**具備所有電商該有功能的完整專案**（包含商品頁、購物車、多步驟結帳、狀態保留與響應式佈局）。
+**核心目標**：生成的網站不能看起來像是廉價的模板站，必須達到 **UI/UX Pro Max** 級別。每一個產出的網站都要像 [Melanie Casey](https://www.melaniecasey.com/) 那樣：具備經營 5 年以上的品牌底蘊、極致的視覺美學、獨一無二的設計系統，以及無懈可擊的電商基礎建設。
 
 ---
 
-## 🏗️ 核心架構：The Base Template (基底模板)
+## 💎 第一支柱：Pro Max 級 Base Template (基底模板)
 
-自動化建站的第一準則：**「不要每次從頭寫程式碼」**。
-在執行建站工廠前，系統必須維持一個高度模組化且乾淨的基底模板（例如存在 `C:\Users\Dee\MyApp\BaseTemplate` 中）。
+自動化建站不能依賴簡陋的空殼。系統在複製專案前，依賴的 `BaseTemplate` 必須具備頂級電商的所有模組：
 
-**基底模板必須已經內建以下完整功能：**
-1. **基礎框架**：React + Vite + TypeScript + TailwindCSS
-2. **核心頁面**：Home（首頁）、Catalog（商品列表）、Product Detail（商品詳情與畫廊）、Checkout（結帳與表單驗證）、Order Success（結帳成功頁）、AboutUs / ContactUs（靜態介紹）。
-3. **電商邏輯**：基於 Context 的全域購物車（`CartContext`）、localStorage 持久化儲存、多幣種計算邏輯。
-4. **設計系統槽（Slots）**：所有顏色、字體、圓角皆由 CSS 變數控制，等待 AI 注入參數。
+1. **頂級技術棧**：`React` (或 Next.js) + `TailwindCSS` + `shadcn/ui` + `Framer Motion` (流暢微動畫)。
+2. **全功能專業佈局**：
+   * **沉浸式首頁**：動態 Hero Banner、熱銷推薦、品牌理念區塊、質感圖文交錯排版。
+   * **進階導覽 (Mega Menu)**：支援多層次分類展開、懸停特效。
+   * **Pro 級網頁底圖 (Footer)**：依照頂級品牌標準配置（Logo/簡介、商品分類、顧客服務、聯絡資訊及社交媒體圖示）。
+   * **信任信號 (Trust Signals)**：SSL 安全認證圖示、退換貨保證、真實質感的空殼評論評分系統。
+3. **完整的後勤頁面**：不僅有首頁和商品頁，還內建 **隱私權政策、退換貨政策、服務條款、常見問題 (FAQ)、配送說明** 等經營 5 年以上老店必備的完整靜態頁面。
+4. **設計變量槽 (Design Variables)**：抽離所有硬編碼的樣式，讓顏色、字體、圓角、間距全權交由動態注入。
 
 ---
 
 ## ⚙️ 自動化建站工廠 5 步驟標準流程
 
-當系統開始執行「建站任務」時（例如產生代號為 `A` 的專案），將嚴格遵循以下流水線：
+### Step 1: 抽選資料與深度特徵提取 (Data Sourcing)
+1. 從 `progress-report/extracted_products.json` 讀取商品資料庫。
+2. 隨機或指定抽選一個分類（例如：`【傳統風水護身類】`）。
+3. 將該分類下所有實體商品（名稱、價格）打包，並轉換為視覺設計的參考依據。
 
-### Step 1: 抽選資料與特徵提取 (Data Extraction)
+### Step 2: AI 大腦深度品牌塑形 (AI Deep Branding - 不重複保證)
+這是達成「獨一無二」的關鍵步驟。AI 接收分類資料後，不使用任何預設版型 (No Presets)，而是**無中生有生成一套完整的 Design System**：
 
-1. **讀取源頭**：從 `C:\Users\Dee\MyApp\work\projects\progress-report\extracted_products.json` 讀取商品資料庫。
-2. **隨機/指定選定**：由系統隨機（或由您手動指定）抽選一個分類。例如抽出 `【傳統風水護身類】`。
-3. **資料打包**：將該分類下的所有實體商品（名稱、價格、重量、1688 照片 URL 等）打包成一份輕量級的 JSON，準備帶入下一步。
+* **品牌文案工程**：
+  * 生成品牌名（【福運閣】）、Slogan、以及一段充滿底蘊的 5 年品牌故事。
+  * 自動擴寫各項政策文案（配送說明、退換貨等），確保內容符合福運閣的語氣。
+* **獨家色彩學 (Dynamic Color Palette)**：
+  * AI 精準計算一套全新的 HSL 色票（主色、輔助色、背景色、強調色）。例如：主色黯金色 `#D4AF37` 配搭深木色 `#2C1E16`。
+* **排版與字體 (Typography Pairing)**：
+  * AI 負責從 Google Fonts 中挑選一對獨一無二的字體組合（如 `Noto Serif TC` 搭配 `Inter`），並計算字階 (Type Scale)。
+* **微型互動風格**：
+  * 決定按鈕是銳利直角（現代前衛）還是大圓角（親和自然），決定動畫是柔和淡入還是俐落滑動。
 
-### Step 2: AI 大腦塑形與文案生成 (AI Agent Generation)
+**[產出物]**：一份極度龐大且細緻的 `brand_config.json`（包含文案、Footer 結構、動態 Tailwind 變數）。
 
-啟動內部 AI Agent（如 Claude/Gemini 工作流），輸入 Step 1 的商品資料，要求 AI 輸出**專屬品牌設定檔 (Brand Config)**。
+### Step 3: 磁碟上的實體克隆與隔離 (Physical Cloning)
+1. 腳本在硬碟上建立全新目錄 `C:\Users\Dee\MyApp\A`（或依品牌名 `C:\Users\Dee\MyApp\FortunePavilion`）。
+2. 將 `BaseTemplate` 裡的所有原始程式碼完整複製進 `A`。確保每一個網站都是實體的獨立專案。
 
-* **Agent: 品牌策略師**
-  * 命名：【福運閣】（Fortune Pavilion）
-  * Slogan：傳承經典，護佑安康。
-  * 品牌故事：為首頁和 About Us 頁面生成專屬的背景故事與願景。
-* **Agent: 視覺設計師**
-  * 選定設計 Preset（例如：`minimal-luxury`）。
-  * 決定配色：主色 `#D4AF37`（金色），輔助色 `#8B0000`（暗紅）。
-  * 決定字體：襯線字體（Serif）以顯傳統高雅。
+### Step 4: 靈魂注入與全域覆寫 (Data & Theme Injection)
+將 Step 2 的 AI 成果注入實體專案：
+1. **覆寫 Tailwind 配置**：腳本自動修改 `A/tailwind.config.js` 與 `A/src/index.css`，將 AI 生成的專屬色環與字體寫入 CSS 變數。
+2. **建構 Pro Footer 與導覽列**：將 AI 規劃的 Footer 連結（顧客服務、聯絡電話、營業時間）精準寫入元件配置檔，確保網站底部看起來專業且資訊豐富。
+3. **注入商品資料庫**：將護身符商品寫入 `A/src/data/raw_products.json`。
+4. **注入法律與服務頁面**：將 AI 自動生成的退換貨、隱私權政策內容，生成對應的 markdown 或 TSX 檔。
 
-**[產出物]**：`theme.json` 與 `content.json`。
-
-### Step 3: 磁碟上的實體克隆 (Physical Cloning)
-
-這是將「代碼」變成「實體專案」的關鍵步驟：
-1. **建立資料夾**：腳本在硬碟上建立全新目錄 `C:\Users\Dee\MyApp\A`（或依品牌名 `C:\Users\Dee\MyApp\FortunePavilion`）。
-2. **複製架構**：將 `BaseTemplate` 裡的所有原始程式碼（包括 `src/`, `package.json`, `index.html` 等）**完整複製**進 `C:\Users\Dee\MyApp\A`。
-3. 此刻，資料夾 `A` 已經是一個可以獨立跑 `npm install` 與 `npm run dev` 的 React 專案，但它還是一個缺乏靈魂的空殼。
-
-### Step 4: 靈魂注入與配置覆寫 (Data & Theme Injection)
-
-將 Step 1 和 Step 2 準備好的資料，精準覆寫進剛剛建立的 `C:\Users\Dee\MyApp\A` 中：
-
-1. **注入商品**：將 Step 1 包好的該分類商品 JSON，單獨寫入 `A/src/data/raw_products.json` 中。（此專案未來只會賣風水護身物，不會包含露營或咖啡用品，做到真正的獨立分離）。
-2. **注入品牌配置**：將 Step 2 AI 生成的 `theme.json` 與 `content.json` 寫入 `A` 專案中，覆蓋基底預設值。
-3. **注入全域變數**：修改 `A` 專案的 `index.html` 的 Title，以及可能涉及 SEO 的 Meta 標籤。
-
-### Step 5: 自動化依賴安裝與測試驗證 (Build & Verify)
-
-腳本在背景針對 `C:\Users\Dee\MyApp\A` 執行終端機命令：
-
-1. `npm install`：安裝所有前端依賴套件。
-2. `npx tsc --noEmit`：進行 TypeScript 靜態檢查，確保注入的 JSON 與 TypeScript 介面完美吻合。
-3. （可選）`npm run build`：確保此獨立網站可正常打包成生產環境 (Production Build)。
-4. 測試通過後，回報建立成功。
+### Step 5: 自動化依賴安裝與生產環境測試 (Build & Verify)
+1. 在 `A` 目錄下自動執行 `npm install`。
+2. 下載 AI 選定的 Google Fonts 到本地以加速載入。
+3. 執行 `npx tsc --noEmit` 及 `npm run build`。
+4. 驗證無誤後，這就是一個可以直接部署上網的全新頂級品牌。
 
 ---
 
-## 🚀 成果：100% 獨立的【福運閣】網站誕生
+## 🎯 最終產出：超越樣板的工匠級網站
 
-經過這 5 個步驟，`C:\Users\Dee\MyApp\A` 已經不再是原型（Prototype），而是一個**馬上就能推上 Vercel 或 Netlify 上線賺錢的獨立電商網站**。
-
-它擁有：
-✅ 清晰的品牌定位與首頁文案（福運閣）
-✅ 該分類專屬的商品列表與詳情圖片（護身符、轉運珠）
-✅ 屬於該風格的 UI 視覺（金色/暗紅的黑底燙金風格）
-✅ 完整的全域購物車面板
-✅ 擁有驗證機制的 Checkout 流程與成功頁面
-
-**未來的無限擴展：**
-只要有了這套標準化流程，您只需在終端機輸入：
-`npm run generate-site --count 10`
-系統就能以極快的速度，從 `progress-report` 中抽出 10 個不同分類，在您的 `MyApp` 資料夾底下自動生成 `C:\Users\Dee\MyApp\Site1` 到 `Site10`，10 個完全不同領域、不同設計的完整品牌網站！
+透過這套流程，每次在終端機執行 `npm run factory:generate` 時：
+- 您**不會**得到換湯不換藥的樣板站。
+- 您**會得到**一個擁有獨特色調、獨家高質感字體、擁有完整 Footer（含聯絡方式、政策條款）、並且運作流暢的現代化電商。
+- 無論產生 10 個還是 100 個網站，每一個的視覺與使用者體驗（UI/UX）都將像 Melanie Casey 一樣，具備強烈的品牌識別度與無死角的專業感。
